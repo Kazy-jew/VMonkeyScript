@@ -6,9 +6,8 @@
 // ==/UserScript==
 
 
-// ダウンロードが失敗したあともう一度ダウンロードをやり直すまでの時間
 var retryInterval = 10000;
-// ダウンロードが失敗したあと再試行する回数
+
 var maxRetry = 2;
 
 var imageData = [];
@@ -66,19 +65,19 @@ function retry() {
 }
 
 function onLoad() {
-    console.log("Download Completed!");
+    console.log("Download Completed!", "color: #7cfc00");
 }
 
 function onError(err) {
-    console.log("Error! Reason: " + err.error);
+    console.log("Error! Reason: " + err.error, "color: crimson");
     retry();
 }
 
 function onProgress() {
-    console.log("Downloading...");
+    console.log("Downloading...", "color: chartreuse");
 }
 
 function onTimeout() {
-    console.log("Timeout!" + imageData[0].name);
+    console.log("Timeout!" + imageData[0].name, "color: brown");
     retry();
 }
