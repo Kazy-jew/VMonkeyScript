@@ -24,7 +24,7 @@ var currentRetry = 0;
 function getImageData() {
     var elements = document.querySelector("#png") || document.querySelector("#highres");
     var img_link = elements.href;
-    var img_name = decodeURI(img_link).split('/').slice(-1)[0]
+    var img_name = decodeURI(img_link.split('/').slice(-1)[0]).replace(/%2F|%3A|%3F|[\\%*"<>|]/g, '_');
     // console.log(img_link, img_name)
     imageData.push({
         name: img_name,
