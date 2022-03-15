@@ -35,7 +35,7 @@ function getImageData() {
 
 function downloadImage() {
     if (!imageData.length) {
-        console.log('Image not exist...');
+        console.log('%cImage not exist...', 'color: blueviolet');
         return
     }
     console.log(imageData[0].link, imageData[0].name);
@@ -65,19 +65,19 @@ function retry() {
 }
 
 function onLoad() {
-    console.log("Download Completed!", "color: #7cfc00");
+    console.log("%cDownload Completed!", "color: mediumseagreen");
 }
 
 function onError(err) {
-    console.log("Error! Reason: " + err.error, "color: crimson");
+    console.log("%cError! Reason: " + err.error, "color: crimson");
     retry();
 }
 
 function onProgress() {
-    console.log("Downloading...", "color: chartreuse");
+    console.log("%cDownloading...", "color: chartreuse");
 }
 
 function onTimeout() {
-    console.log("Timeout!" + imageData[0].name, "color: brown");
+    console.log("%cTimeout!" + imageData[0].name, "color: brown");
     retry();
 }
