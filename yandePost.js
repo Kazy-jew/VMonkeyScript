@@ -68,7 +68,7 @@ function retry() {
 
 function download_tips() {
     var logList = [];
-    const arr = ["Downloading", ""];
+    const arr = ["Downloading...", "", "Complete!"];
     const div = document.createElement('div');
     const ul = document.createElement("ul");
     const li1 = document.createElement('li');
@@ -103,19 +103,19 @@ function insertToHead(ele) {
 
 function onLoad() {
     set_tips("Complete!");
-    console.log("Download Completed!");
+    console.log("%cDownload Completed!", "color: mediumseagreen");
 }
 
 function onError(err) {
-    console.log("Error! Reason: " + err.error);
+    console.log("%cError! Reason: " + err.error, "color: crimson");
     retry();
 }
 
 function onProgress() {
-    console.log("Downloading...");
+    console.log("%cDownloading...", "color: chartreuse");
 }
 
 function onTimeout() {
-    console.log("Timeout!" + imageData[0].name);
+    console.log("%cTimeout!", "color: brown");
     retry();
 }
